@@ -1,3 +1,5 @@
+
+
 function getUsers() {
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
@@ -5,7 +7,6 @@ function getUsers() {
             if (xhr.status == 200) {
                 const users = JSON.parse(xhr.responseText);
                 // console.log(typeof users);
-
                 let tbodyHTML = "";
                 users.forEach(ele => {
                     // console.dir(ele)
