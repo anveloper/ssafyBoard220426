@@ -148,3 +148,27 @@ function fail(){
     alert('따로 저장은 안됩니다.');
     history.back();
 }
+
+
+function reset(){
+    let m = document.getElementById("signinId");
+    m.value = '';
+    m = document.getElementById("signinPassword");
+    m.readOnly = false;
+    m = document.getElementById("signinPasswordc");
+    m.readOnly = false;
+    m = document.getElementById("signinNickname");
+    m.readOnly = false;
+    let ms = document.getElementById("idCheckMsg");
+    ms.innerText = '';
+    ms.style.color = 'orange';
+    ms = document.getElementById("passCheckMsg");
+    ms.innerText = '';
+    ms.style.color = 'orange';
+    ms = document.getElementById("passCCheckMsg");
+    ms.innerText = '';
+    ms.style.color = 'orange';
+    ms = document.getElementById("nameCheckMsg");
+    ms.innerText = '';
+    ms.style.color = 'orange';
+}
