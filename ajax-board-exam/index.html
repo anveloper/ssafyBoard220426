@@ -15,7 +15,7 @@
       <a class="navbar-brand" href="index.html">SSAFY</a>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#1" data-page="views/board.html">게시판</a>
+          <a class="nav-link board" href="#1" data-page="views/board.html">게시판</a>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
@@ -34,20 +34,27 @@
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
   <script src="./script/board.js"></script>
+  <script src="./script/join.js"></script>
   <script>
     const navLinkList = document.querySelectorAll(".nav-link");
     navLinkList.forEach(function (item) {
       item.addEventListener('click', (e) => {
-        const link = e.target;        
+        const link = e.target;
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
           if (xhr.readyState == 4) {
-            if(xhr.status == 200) {
+            if (xhr.status == 200) {
               document.getElementById('pageBody').innerHTML = xhr.responseText;
               
-              getUsers();
+              if (link.dataset.page=="views/board.html") {
+                getUsers();
+              }
 
-            } else{
+              else if(link.dataset.page=="views/join.html"){
+                joininit();
+              }
+
+            } else {
               alert("nav-bar error");
             }
           }
@@ -56,7 +63,6 @@
         xhr.send();
       });
     });
-
   </script>
 </body>
 
